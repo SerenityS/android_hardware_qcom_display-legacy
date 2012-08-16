@@ -317,7 +317,7 @@ int mapFrameBufferLocked(struct private_module_t* module)
     float ydpi = (info.yres * 25.4f) / info.height;
     //The reserved[3] field is used to store FPS by the driver.
 #ifndef REFRESH_RATE
-    float fps  = info.reserved[3];
+    float fps  = info.reserved[3] & 0xFF;
 #else
     float fps  = REFRESH_RATE;
 #endif
